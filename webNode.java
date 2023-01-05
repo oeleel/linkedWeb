@@ -1,11 +1,11 @@
 import java.util.*; 
 
-public class webNode {
+public class WebNode {
     private String name; 
     private ArrayList<String> neighbors;
     private Country country;
 
-    public webNode(String str, ArrayList<String> nei, Country c) {
+    public WebNode(String str, ArrayList<String> nei, Country c) {
         name = str;
         neighbors = nei;
         country = c; 
