@@ -1,13 +1,15 @@
 public class linkedWeb implements Webable {
-    public String 
+    public ArrayList<WebNode> board; 
     public linkedWeb (anyType v, String name) {
         this.name = name;
         this.v = v; 
     }
 
-    public boolean add(String n, List<String> nei, anyType v) {
-        
+    public boolean add(String n, List<String> nei, Country c) {
+        board.add(new WebNode(n, nei, c));
+        return true;
     }
+
     public boolean addNeighbors(String n, List<String> nei) {
 
     }
