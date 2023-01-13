@@ -1,40 +1,65 @@
-public class linkedWeb implements Webable {
-    public ArrayList<WebNode> board; 
-    public linkedWeb (anyType v, String name) {
-        this.name = name;
-        this.v = v; 
-    }
+public class LinkedWeb<e> implements Webable {
+    private ArrayList<WebNode> board;
 
-    public boolean add(String n, List<String> nei, Country c) {
-        board.add(new WebNode(n, nei, c));
-        return true;
+    public boolean add(String name, ArrayList<String> adjacent, Country c, int i)
+    {
+       board.add(i, new WebNode(name, adjacent, c));
+       return true;
     }
-
-    public boolean addNeighbors(String n, List<String> nei) {
-
+    
+    public void remove(int i)
+    {
+       board.remove(i);
     }
-    public boolean areNeighbors(String n , String b) {
-
+    
+    public int size()
+    {
+       return board.size();
     }
-    public void clear() {
-
+    
+    public boolean isEmpty()
+    {
+       if(board.size() == 0)
+       {
+          return true;
+       }
+       return false;
     }
-    public boolean containsName(String n) {
-
+    
+    public LinkedWeb()
+    {
+       board = new ArrayList();                                                                                                                                                                                                                                                                                                                                                                            
     }
-    public WebNode get(String n) {
-
+   
+    
+    public boolean add(String name, ArrayList<String> adjacent, Country c)
+    {
+       board.add(new WebNode(name, adjacent, c));
+       return true;
     }
-    public WebNode set(String n, List<String> nei, anyType v) {
-
+    
+    
+    public String showUnlinked()
+    {
+       String ans = "";
+       
+       for(int i = 0; i< board.size(); i++)
+       {
+          ans += board.get(i).getName() + ", BORDERS:[";
+          for(int j = 0; j<board.get(i).getNeighborSize(); j++)  
+          {
+             ans += board.get(i).getIndexName(j) + " "; 
+             
+          }
+          ans += "]";
+          ans += "\n";
+          ans += board.get(i).getCountry().toString();
+          ans += "\n";
+       }
+       
+       return ans;
     }
-    public String showUnlinked() {
-
-    }
-    public int size() {
-
-    }
-    public Object[] toArray() {
-
-    }
+    
+    
+ }
 }

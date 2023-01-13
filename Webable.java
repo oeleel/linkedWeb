@@ -1,15 +1,10 @@
 import java.util.*;
 
 interface Webable<anyType> {
-    public boolean add(String n, List<String> nei, anyType v);
-    public boolean addNeighbors(String n, List<String> nei);
-    public boolean areNeighbors(String n , String b);
-    public void clear();
-    public boolean containsName(String n);
-    public WebNode get(String n);
-    public WebNode set(String n, List<String> nei, anyType v);
-    public String showUnlinked();
-    public int size();
-    public Object[] toArray();
+    public abstract boolean add(String name, ArrayList<String> string, Country a);
+    public abstract boolean add(String n, ArrayList<String> string, Country a, int index);
+    public abstract void remove(int index);
+    public abstract int size();
+    public abstract boolean isEmpty();
 }
  
