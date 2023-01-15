@@ -10,7 +10,7 @@ public class LinkedWebDriver
    public static LinkedWeb<Country> readFile(String fileName) throws IOException
    {
       Scanner input = new Scanner(new FileReader(fileName));
-      LinkedWeb<Country> risk = new LinkedWeb();
+      LinkedWeb<Country> risk = new LinkedWeb<>();
       while (input.hasNextLine())		//while there is another line in the file
       {
          String t = input.nextLine();		
@@ -18,7 +18,7 @@ public class LinkedWebDriver
             continue;	
          String [] parts = t.split(" ");
          String name = parts[0];
-         ArrayList <String> borders = new ArrayList();
+         ArrayList <String> borders = new ArrayList<>();
          for(int i=1; i<parts.length; i++)
             borders.add(parts[i]);
          risk.add(name, borders, new Country());

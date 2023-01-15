@@ -1,10 +1,10 @@
-import java.util.*;
+import java.util.ArrayList;
 
-public class LinkedWeb implements Webable {
+public class LinkedWeb<anyType> implements Webable {
    private ArrayList<WebNode> board;
-   
+
    public LinkedWeb() {
-      board = new ArrayList();                                                                                                                                                                                                                                                                                                                                                                            
+      board = new ArrayList<>();                                                                                                                                                                                                                                                                                                                                                                            
    }
    
    public boolean add(String name, ArrayList<String> adjacent, Country c, int i) {
@@ -41,7 +41,11 @@ public class LinkedWeb implements Webable {
          ans += board.get(i).getName() + ", BORDERS:[";
          for(int j = 0; j<board.get(i).listNumNeighbors(); j++)  
          {
-            ans += board.get(i).nameAtIndex(j) + " ";  
+            if (j < board.get(i).listNumNeighbors() - 1) {
+               ans += board.get(i).nameAtIndex(j) + ", ";
+            }
+            else 
+               ans += board.get(i).nameAtIndex(j);
          }
          ans += "]";
          ans += "\n";
